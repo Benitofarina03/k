@@ -151,7 +151,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 
 		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
 
-		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME+"ORDER BY id_prodotto";
+		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME+" ORDER BY nome";
 
 		try {
 			connection = ds.getConnection();

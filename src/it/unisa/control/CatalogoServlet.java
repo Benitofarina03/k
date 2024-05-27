@@ -26,7 +26,7 @@ public class CatalogoServlet extends HttpServlet {
 		ProdottoBean bean = new ProdottoBean();
 		String sort = request.getParameter("sort");
 		String action = request.getParameter("action");
-		String redirectedPage = request.getParameter("page");;
+		String redirectedPage = request.getParameter("page");
 	
 		try {
 			if(action!=null) {
@@ -73,7 +73,7 @@ public class CatalogoServlet extends HttpServlet {
 
 		try {
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products", prodDao.doRetrieveAll(sort));
+			request.getSession().setAttribute("products", prodDao.doRetrieveAll());
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
