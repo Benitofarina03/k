@@ -34,7 +34,7 @@ public class RicercaProdottoServlet extends HttpServlet {
 		ArrayList<ProdottoBean> prodotti;
 		
 		try {
-			prodotti = dao.doRetrieveAll(null);
+			prodotti = dao.doRetrieveAll();
 			for(ProdottoBean p : prodotti) {
 				for(int i=0; i<p.getNome().length() - 1;i++) {
 					for(int j=i+1; j<p.getNome().length(); j++) {

@@ -145,17 +145,13 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 	}
 
 	@Override
-	public synchronized ArrayList<ProdottoBean> doRetrieveAll(String order) throws SQLException {
+	public synchronized ArrayList<ProdottoBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
 
-		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
+		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME+"ORDER BY id_prodotto";
 
 		try {
 			connection = ds.getConnection();
