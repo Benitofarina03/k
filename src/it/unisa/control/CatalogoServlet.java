@@ -27,7 +27,6 @@ public class CatalogoServlet extends HttpServlet {
 		String sort = request.getParameter("sort");
 		String action = request.getParameter("action");
 		String redirectedPage = request.getParameter("page");
-	
 		try {
 			if(action!=null) {
 				if(action.equalsIgnoreCase("add")) {

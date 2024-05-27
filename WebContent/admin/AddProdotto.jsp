@@ -24,7 +24,8 @@
 		<input type="hidden" name="page" value="admin/GestioneCatalogo.jsp"><br><br>
 		<div class="tableRow">
 			<p>Nome:</p>
-			<p><input type="text" name="nome" value="" required></p>
+			<p><input type="text" name="nome" id="nome" value="" required></p>
+			<p id="nomeError" class="error"></p>
 		</div>
 		<div class="tableRow">
 			<p>Descrizione:</p>
@@ -71,6 +72,38 @@
 	</div>
 
 	<%@ include file="../fragments/footer.jsp" %>
+	<script>
+	var nameCorrect = false;
+	
+	function validate(form) {
+		if (!nameCorrect) {
+			return false;
+		}
+		return true;
+	}
+	
+	$("#nome").change(function() {
+		nameCorrect = nameValidator(form.nome, this);
 
+	});
+    function nameValidator(nome)
+	{
+		var nomeReg= /^(([A-Z])([a-z]+)/;
+		if(nome.value.match(nomeReg)) 
+		{ 
+			$("#nome").css({"border-color":"#00fd00"});
+			$("#nomeError").text("");
+		    return true;
+		}
+		else
+		{ 
+			$("#nome").css({"border-color":"red"});
+		   $("#nomeError").text("Formato del Nome errato");
+			
+		     return false;
+		}
+		    	
+	}
+	</script>
 </body>
 </html>
